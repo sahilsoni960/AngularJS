@@ -1,0 +1,19 @@
+body{
+  text-align: center;
+}
+.message_error, .message_success{
+  border-radius:4px;
+  padding:15px;
+  margin:10px auto;
+  width:50%;
+}
+
+.message_error{
+  color:red;
+  border:1px solid red;
+}
+
+.message_success{
+  color:green;
+  border:1px solid green;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app='LunchCheck' lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Lunch Checker</title>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+  <body ng-controller='LunchCheckController'>
+    <div class="container">
+      <h1>Lunch Checker</h1>
+
+        <div class="form-group">
+          <input id="lunch-menu"
+                 type="text"
+                 placeholder="list comma separated dishes you usually have for lunch"
+                 class="form-control"
+                 ng-model="dishes"
+                 style = 'border-color : {{color}}'>
+        </div>
+        <div class="form-group">
+          <button type="btn btn-default"
+                  ng-click="countingDishes()">Check If Too Much</button>
+        </div>
+        <div class="form-group message_{{result}}">
+          {{message}}
+        </div>
+        <br>
+        <p>Empty items are NOT considered</p>
+        <p>Example: item 1, item2, ,item3 or item 1, item2,,item3</p>
+    </div>
+
+  </body>
+</html>
