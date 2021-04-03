@@ -1,0 +1,12 @@
+<div ng-repeat="item in $ctrl.items">
+  <div class="clearfix" ng-if="$index % 3 == 0"></div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="https://placehold.it/700x350/EEE">
+      <div class="caption">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div ng-repeat="category in $ctrl.categories" ui-sref="items({ category: category.short_name })">
+  <div class="clearfix" ng-if="$index % 3 == 0"></div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="https://placehold.it/700x350/EEE">
+      <div class="caption">
+        <h3>{{ category.name }} <span class="label label-primary">{{ category.short_name }}</span></h3>
+      </div>
+    </div>
+  </div>
+</div>
