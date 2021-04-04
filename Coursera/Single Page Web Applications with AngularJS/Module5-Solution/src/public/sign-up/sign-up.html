@@ -1,0 +1,61 @@
+<div class="container">
+  <fieldset id="sign-up-field">
+    <div id="sign-up-title">Sign Up</div>
+    <form name="signUpForm" novalidate>
+      <input type="text" name="firstName" placeholder="First Name" class="sign-up-input"
+        ng-model="signUpCtrl.user.firstName"
+        required>
+        <div
+          ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched" class="error">
+          Please input your first name.
+        </div>
+      <br>
+
+      <input type="text" name="lastName" placeholder="Last Name" class="sign-up-input"
+        ng-model="signUpCtrl.user.lastName"
+        required>
+        <div
+          ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched" class="error">
+          Please input your last name.
+        </div>
+      <br>
+
+      <input type="email" name="email" placeholder="Email" class="sign-up-input"
+        ng-model="signUpCtrl.user.email"
+        required>
+        <div ng-if="signUpForm.email.$invalid && signUpForm.email.$touched" class="error">
+          Must be a valid email address: handle@domain format
+        </div>
+      <br>
+
+      <input type="text" name="phone" placeholder="Phone ###-###-####" class="sign-up-input"
+        ng-model="signUpCtrl.user.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <div ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched" class="error">
+          Phone must be in the format ###-###-####.
+        </div>
+      <br>
+
+      <input type="text" name="favourite" placeholder="Your favourite dish" class="sign-up-input" 
+             ng-focus="focused = true" ng-blur="signUpCtrl.validateFavourite(); focused = false"
+        ng-model="signUpCtrl.user.favourite"
+        required>
+        <div ng-if="signUpForm.favourite.$error.required && signUpForm.favourite.$touched" class="error">
+          Please input your favourite dish.
+        </div>
+        <div ng-if="!focused && (!signUpForm.favourite.$error.required) && signUpCtrl.invalidDish" class="error">
+          No such menu number exists.
+        </div>
+      <br>
+
+      <button class="sign-up-submit"
+        ng-disabled="signUpForm.$invalid || signUpCtrl.shortNames.indexOf(signUpCtrl.user.favourite.toLowerCase()) === -1"
+        ng-click="signUpCtrl.submit()">Submit</button>
+
+    </form>
+
+    <div id="sign-up-complete" ng-if="signUpCtrl.saved">Your information has been saved.<div>
+
+  </fieldset>
+
+</div>
